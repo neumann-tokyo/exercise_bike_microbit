@@ -1,10 +1,8 @@
-from microbit import *
+# https://makecode.microbit.org/
 
-while True:
-    if pin0.read_digital():
-        for x in range(4):
-            display.show(Image.HAPPY)
-            sleep(1000)
-    else:
-        display.clear()
-    sleep(500)
+def on_forever():
+    if pins.digital_read_pin(DigitalPin.P0) == 1:
+        serial.write_string("s")
+
+
+basic.forever(on_forever)
